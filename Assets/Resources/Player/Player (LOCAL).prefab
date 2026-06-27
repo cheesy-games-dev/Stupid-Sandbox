@@ -425,7 +425,6 @@ GameObject:
   - component: {fileID: 2617807182977003713}
   - component: {fileID: 2645323083657962677}
   - component: {fileID: 6368700713034602175}
-  - component: {fileID: 6317285277959064320}
   m_Layer: 3
   m_Name: Player (LOCAL)
   m_TagString: Player
@@ -748,25 +747,7 @@ MonoBehaviour:
   movement: {fileID: 7428164339133724060}
   camera: {fileID: 5708008484584781384}
   input: {fileID: 2645323083657962677}
---- !u!114 &6317285277959064320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7428164339133724038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bde79fa976d8034aaa2bc3f036b4c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  health: 50
-  onDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onFlatline:
-    m_PersistentCalls:
-      m_Calls: []
+  collider: {fileID: 7428164339133724033}
 --- !u!1 &7428164339589482873
 GameObject:
   m_ObjectHideFlags: 0

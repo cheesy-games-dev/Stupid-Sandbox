@@ -11,13 +11,21 @@ public class PlayerController : MonoBehaviour
     public PlayerMovement movement;
     public CameraControls camera;
     public PlayerInput input;
+    public Collider collider;
     private void Start()
     {
         NetManager.instance.SpawnPlayer(this);
     }
     private void Update()
     {
-        MyNetPlayer.transform.position = transform.position;
-        MyNetPlayer.transform.rotation = transform.rotation;
+        if (MyNetPlayer)
+        {
+            MyNetPlayer.transform.position = transform.position;
+            MyNetPlayer.transform.rotation = transform.rotation;
+            foreach (var collider in MyNetPlayer.GetComponentsInChildren<Collider>())
+            {
+                Physics.IgnoreCollision(this.collider, collider, true);
+            }
+        }     
     }
 }
