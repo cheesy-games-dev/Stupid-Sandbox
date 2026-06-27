@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 54f5e174187fe4542b2974aadba473bd
+guid: 66684844d4b22dc40af5fd3302d15eab
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Press Start 2P
+  - Trebuchet MS
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

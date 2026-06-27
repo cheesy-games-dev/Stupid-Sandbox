@@ -17,9 +17,9 @@ public class Interactor : MonoBehaviour
         }
     }
     public IInteractable LastInteractable { get; set; }
-    public void OnInteract(InputAction.CallbackContext context)
+    public void OnInteract(InputValue value)
     {
-        if (context.action.WasPressedThisFrame())
+        if (value.isPressed)
         {
             if (Physics.Raycast(controller.input.camera.transform.position, controller.input.camera.transform.forward, out RaycastHit hit, 5f))
             {
@@ -27,7 +27,7 @@ public class Interactor : MonoBehaviour
                 if (LastInteractable != null) LastInteractable.OnPress(this);
             }
         }
-        else if (context.action.WasReleasedThisFrame()) {
+        else if (!value.isPressed) {
             if (LastInteractable != null) LastInteractable.OnRelease(this);
         }
     }

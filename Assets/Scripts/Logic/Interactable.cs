@@ -1,5 +1,4 @@
 using Photon.Pun;
-using UnityEngine;
 using UnityEngine.Events;
 
 public class Interactable : MonoBehaviourPun, IInteractable
@@ -21,11 +20,11 @@ public class Interactable : MonoBehaviourPun, IInteractable
     [PunRPC]
     private void PressRpc(int senderId)
     {
-        onPress?.Invoke(NetManager.instance.netPlayers[senderId]);
+        onPress?.Invoke(GameManager.instance.players[senderId]);
     }
     [PunRPC]
     private void ReleaseRpc(int senderId)
     {
-        onRelease?.Invoke(NetManager.instance.netPlayers[senderId]);
+        onRelease?.Invoke(GameManager.instance.players[senderId]);
     }
 }

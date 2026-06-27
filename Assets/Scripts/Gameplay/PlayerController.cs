@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public Collider collider;
     private void Start()
     {
-        NetManager.instance.SpawnPlayer(this);
+        GameManager.instance.SpawnPlayer(this);
     }
     private void Update()
     {

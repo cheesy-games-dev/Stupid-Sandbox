@@ -1,5 +1,4 @@
 using Photon.Pun;
-using UnityEngine;
 
 public class NetPlayer : MonoBehaviourPun
 {
@@ -8,6 +7,6 @@ public class NetPlayer : MonoBehaviourPun
     private void Start()
     {
         id = photonView.OwnerActorNr;
-        NetManager.instance.netPlayers.Add(id, this);
+        GameManager.instance.players.Add(id, this);
     }
 }

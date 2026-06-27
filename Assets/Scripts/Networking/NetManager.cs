@@ -1,20 +1,25 @@
 using Photon.Pun;
-using System.Collections.Generic;
+using Photon.Realtime;
 using UnityEngine;
 
-public class NetManager : MonoBehaviour
+public class NetManager : MonoBehaviourPunCallbacks
 {
-    public static NetManager instance;
-    public readonly Dictionary<int, NetPlayer> netPlayers = new();
-    public string remotePlayerAddress;
-    private void Awake()
+    public bool createRoomOnStart = true;
+    private void Start()
     {
-        instance = this;
+        CreateRoom(16);
+    }
+    public void CreateRoom(int maxPlayers, bool joinable = true, bool isPublic = true)
+    {
+        RoomOptions options = new RoomOptions();
+        options.MaxPlayers = maxPlayers;
+        options.IsOpen = joinable;
+        options.IsVisible = isPublic;
+        PhotonNetwork.CreateRoom(Random.Range(0, ushort.MaxValue).ToString());
     }
 
-    public void SpawnPlayer(PlayerController controller)
+    public override void OnCreatedRoom()
     {
-        var netPlayer = PhotonNetwork.Instantiate(remotePlayerAddress, controller.transform.position, controller.transform.rotation);
-        controller.MyNetPlayer = netPlayer.GetComponent<NetPlayer>();
+        var gameManager = PhotonNetwork.InstantiateRoomObject(ActiveData.Instance.gameManagerAddress, Vector3.zero, Quaternion.identity);
     }
 }

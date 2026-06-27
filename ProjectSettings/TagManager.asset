@@ -6,6 +6,19 @@ TagManager:
   tags:
   - objHolder
   - IgnoreBullet
+  - Points
+  - interactionUI
+  - nameText
+  - pointText
+  - HealthBar
+  - deathText
+  - Ammo
+  - scoreUI
+  - DamageVignette
+  - Canvas
+  - respawnBtn
+  - Enemy
+  - DefaultSpawn
   layers:
   - Default
   - TransparentFX
@@ -13,7 +26,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Dynamic
   - 
   - 
   - 

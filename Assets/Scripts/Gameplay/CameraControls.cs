@@ -4,18 +4,17 @@ using UnityEngine.InputSystem;
 
 public class CameraControls : MonoBehaviour
 {
-    public PlayerInput input;
+    public Transform camera;
     [SerializeField] private Transform fpsCamera;
     [SerializeField] private Transform tpsCamera;
-    private bool isFirstPerson = true;
-
+    public bool IsFirstPerson { get; set; } = true;
     private void Update() {
-        input.camera.transform.position = isFirstPerson ? fpsCamera.position : tpsCamera.position;
-        input.camera.transform.rotation = isFirstPerson ? fpsCamera.rotation : tpsCamera.rotation;
+        camera.position = IsFirstPerson?fpsCamera.position:tpsCamera.position;
+        camera.rotation = IsFirstPerson ? fpsCamera.rotation : tpsCamera.rotation;
     }
 
     public void OnChangeCamera()
     {
-        isFirstPerson = !isFirstPerson;
+        IsFirstPerson = !IsFirstPerson;
     }
 }

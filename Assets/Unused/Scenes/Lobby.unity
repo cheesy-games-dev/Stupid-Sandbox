@@ -52634,11 +52634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e81729ae3df8bf4c96c9f9c85bd7e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  elaspedDuration: 0
-  extraText: 'Think about your descision for:'
-  delay: 120
-  timerText: {fileID: 821073996}
 --- !u!1 &1011645321
 GameObject:
   m_ObjectHideFlags: 0
@@ -117573,23 +117568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055d10f71b1380145922a36a7ee9c588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pvCache: {fileID: 0}
-  onPressedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  onPerformedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  onReleasedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  ToggleOn:
-    m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 0}, m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine: }
 --- !u!1 &2505804244980967171
 GameObject:
   m_ObjectHideFlags: 0
