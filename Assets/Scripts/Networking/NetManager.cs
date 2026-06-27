@@ -7,7 +7,11 @@ public class NetManager : MonoBehaviourPunCallbacks
     public bool createRoomOnStart = true;
     private void Start()
     {
-        CreateRoom(16);
+        PhotonNetwork.OfflineMode = true;
+        if (PhotonNetwork.ConnectUsingSettings())
+        {
+            if (createRoomOnStart) CreateRoom(16);
+        }
     }
     public void CreateRoom(int maxPlayers, bool joinable = true, bool isPublic = true)
     {
@@ -15,11 +19,17 @@ public class NetManager : MonoBehaviourPunCallbacks
         options.MaxPlayers = maxPlayers;
         options.IsOpen = joinable;
         options.IsVisible = isPublic;
-        PhotonNetwork.CreateRoom(Random.Range(0, ushort.MaxValue).ToString());
+        var code = Random.Range(0, ushort.MaxValue).ToString();
+        PhotonNetwork.CreateRoom(code, options);
+        if (PhotonNetwork.OfflineMode)
+        {
+            OnCreatedRoom();
+        }
     }
 
     public override void OnCreatedRoom()
     {
-        var gameManager = PhotonNetwork.InstantiateRoomObject(ActiveData.Instance.gameManagerAddress, Vector3.zero, Quaternion.identity);
+        Debug.Log("Created Room");
+        PhotonNetwork.InstantiateRoomObject(ActiveData.Instance.gameManagerAddress, Vector3.zero, Quaternion.identity);
     }
 }

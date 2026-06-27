@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "PlayerControls",
     "maps": [
         {
@@ -135,6 +136,15 @@
                     "name": "ToggleNoclip",
                     "type": "Button",
                     "id": "73147097-d32d-4b4d-8008-2faa329b04c8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Join",
+                    "type": "Button",
+                    "id": "d2718c78-8dab-4e75-8ae5-9e49b53eb629",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -700,6 +710,28 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "ToggleNoclip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f41b7da2-4935-4206-9c0b-b6861973bd01",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Join",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f3eb825-3cc9-412c-a1af-6d59cc074f88",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

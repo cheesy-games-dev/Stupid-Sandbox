@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13992c960a496134c9c9bb1fb3337bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NetPlayer
+  orientation: {fileID: 7428164338157591788}
 --- !u!1 &7428164340116478988
 GameObject:
   m_ObjectHideFlags: 0

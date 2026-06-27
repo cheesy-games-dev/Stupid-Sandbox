@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public CameraControls camera;
     public PlayerInput input;
     public Collider collider;
+    public Transform orientation;
     private void Start()
     {
         GameManager.instance.SpawnPlayer(this);
@@ -20,8 +21,8 @@ public class PlayerController : MonoBehaviour
     {
         if (MyNetPlayer)
         {
-            MyNetPlayer.transform.position = transform.position;
-            MyNetPlayer.transform.rotation = transform.rotation;
+            MyNetPlayer.orientation.position = orientation.position;
+            MyNetPlayer.orientation.rotation = orientation.rotation;
             foreach (var collider in MyNetPlayer.GetComponentsInChildren<Collider>())
             {
                 Physics.IgnoreCollision(this.collider, collider, true);
