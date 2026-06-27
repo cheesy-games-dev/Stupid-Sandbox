@@ -11,10 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround;
     private Rigidbody rb;
     [Header("Input")]
-    public InputActionProperty moveInput;
-    public InputActionProperty jumpInput;
-    public InputActionProperty crouchInput;
-    public InputActionProperty lookInput;
+    public PlayerInput input;
+    public Vector2 move => input.actions["Move"].ReadValue<Vector2>();
+    public bool jump => input.actions["Jump"].IsPressed();
+    public InputAction crouch => input.actions["Crouch"];
+    public Vector2 look => input.actions["Look"].ReadValue<Vector2>();
     private float xRotation;
     public float sensitivity = 50f;
     private float sensMultiplier = 1.5f;
@@ -140,23 +141,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void MyInput()
     {
-        if (disabled) { 
-            moveVector = Vector2.zero;
+        if (disabled) {
+            input.DeactivateInput();
+            x = 0;
+            y = 0;
             jumping = false;
             return;
         }
-        moveVector = moveInput.action.ReadValue<Vector2>();
-        x = moveVector.x;
-        y = moveVector.y;
-        jumping = jumpInput.action.IsPressed();
+        input.ActivateInput();
+        x = move.x;
+        y = move.y;
+        jumping = jump;
         if (moveVector.magnitude == 0) {
             maxSpeed = tempSpeed;
         }
-        if (crouchInput.action.WasPressedThisFrame()) {
+        if (crouch.WasPressedThisFrame()) {
             crouching = true;
             StartCrouch();
         }
-        else if (crouchInput.action.WasReleasedThisFrame()) {
+        else if (crouch.WasReleasedThisFrame()) {
             crouching = false;
             StopCrouch();
         }
@@ -257,8 +260,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float desiredX;
     private void Look() {
-        float mouseX = lookInput.action.ReadValue<Vector2>().x * sensitivity * Time.fixedDeltaTime * sensMultiplier;
-        float mouseY = lookInput.action.ReadValue<Vector2>().y * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+        float mouseX = look.x * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+        float mouseY = look.y * sensitivity * Time.fixedDeltaTime * sensMultiplier;
 
         //Find current look rotation
         Vector3 rot = playerCam.transform.localRotation.eulerAngles;

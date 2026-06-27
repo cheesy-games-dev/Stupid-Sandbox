@@ -1,5 +1,8 @@
 using Photon.Pun;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 public class GameManager : MonoBehaviourPun
 {
     public static GameManager instance;
@@ -19,5 +22,17 @@ public class GameManager : MonoBehaviourPun
         var netPlayer = PhotonNetwork.Instantiate(networkPlayerAddress, controller.transform.position, controller.transform.rotation);
         controller.MyNetPlayer = netPlayer.GetComponent<NetPlayer>();
         controller.MyUI = Instantiate(uiPrefab);
+    }
+    public PlayerController GetLocalPlayerFromNetPlayer(int playerId)
+    {
+        return GetLocalPlayerFromNetPlayer(players[playerId]);
+    }
+    public PlayerController GetLocalPlayerFromNetPlayer(NetPlayer player)
+    {
+        foreach (var localPlayer in localPlayers.Values)
+        {
+            if(localPlayer.MyNetPlayer ==  player) return localPlayer;
+        }
+        return null;
     }
 }

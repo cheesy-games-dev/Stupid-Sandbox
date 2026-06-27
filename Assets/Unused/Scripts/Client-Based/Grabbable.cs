@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(PhotonTransformView))]
 [RequireComponent(typeof(PhotonRigidbodyView))]
 public class Grabbable : MonoBehaviour
 {

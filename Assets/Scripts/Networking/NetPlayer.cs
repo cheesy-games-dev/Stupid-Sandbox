@@ -7,7 +7,7 @@ public class NetPlayer : MonoBehaviourPun
     public Transform orientation;
     private void Start()
     {
-        id = photonView.OwnerActorNr;
+        id = photonView.OwnerActorNr + photonView.ViewID;
         GameManager.instance.players.Add(id, this);
     }
 }

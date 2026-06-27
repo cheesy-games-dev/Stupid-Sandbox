@@ -350,54 +350,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 65
-  moveInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Move Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 9980d505-ecc0-4559-b93a-7f859916660d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -2332343719276336896, guid: 1c2a98e093ca7b04fa83a7dad7202921, type: 3}
-  jumpInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Jump Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 248c1d20-3640-41f7-b44d-8977a76ef671
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -8952877821347578394, guid: 1c2a98e093ca7b04fa83a7dad7202921, type: 3}
-  crouchInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Crouch Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 73e221eb-085b-4bfd-a972-6ba073a680b9
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 2948144899831433868, guid: 1c2a98e093ca7b04fa83a7dad7202921, type: 3}
-  lookInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Look Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 925b546f-2012-4ce1-a515-a654ebd8a706
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 5088899705229489676, guid: 1c2a98e093ca7b04fa83a7dad7202921, type: 3}
+  input: {fileID: 2645323083657962677}
   sensitivity: 50
   moveSpeed: 1500
   maxSpeed: 15
@@ -559,7 +512,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
