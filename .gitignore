@@ -74,4 +74,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-/[Aa]ssets\[Pp]hoton\[Pp]hotonUnityNetworking\[Rr]esources\PhotonServerSettings.asset
+Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
