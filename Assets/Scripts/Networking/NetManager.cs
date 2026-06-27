@@ -21,10 +21,6 @@ public class NetManager : MonoBehaviourPunCallbacks
         options.IsVisible = isPublic;
         var code = Random.Range(0, ushort.MaxValue).ToString();
         PhotonNetwork.CreateRoom(code, options);
-        if (PhotonNetwork.OfflineMode)
-        {
-            OnCreatedRoom();
-        }
     }
 
     public override void OnCreatedRoom()

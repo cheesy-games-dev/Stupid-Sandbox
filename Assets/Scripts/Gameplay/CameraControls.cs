@@ -5,16 +5,16 @@ using UnityEngine.InputSystem;
 public class CameraControls : MonoBehaviour
 {
     public Transform camera;
-    [SerializeField] private Transform fpsCamera;
-    [SerializeField] private Transform tpsCamera;
-    public bool IsFirstPerson { get; set; } = true;
+    [SerializeField] private Transform backCamera;
+    [SerializeField] private Transform frontCamera;
+    public bool IsBackCamera { get; set; } = true;
     private void Update() {
-        camera.position = IsFirstPerson?fpsCamera.position:tpsCamera.position;
-        camera.rotation = IsFirstPerson ? fpsCamera.rotation : tpsCamera.rotation;
+        camera.position = IsBackCamera? backCamera.position: frontCamera.position;
+        camera.rotation = IsBackCamera ? backCamera.rotation : frontCamera.rotation;
     }
 
     public void OnChangeCamera()
     {
-        IsFirstPerson = !IsFirstPerson;
+        IsBackCamera = !IsBackCamera;
     }
 }

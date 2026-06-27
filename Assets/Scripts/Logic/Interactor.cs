@@ -5,31 +5,41 @@ using UnityEngine.InputSystem;
 public class Interactor : MonoBehaviour
 {
     public PlayerController controller;
-
-    void Update() {
+    public Transform pointer;
+    void Update()
+    {
+        length = Physics.OverlapSphereNonAlloc(pointer.position, 3, colliders);
         var interactableUI = controller.MyUI.interactableUI;
-        if (Physics.Raycast(controller.input.camera.transform.position, controller.input.camera.transform.forward, out RaycastHit hit, 5f)) {
-            bool active = hit.transform.GetComponent<IInteractable>() != null;
-            interactableUI.alpha = Mathf.MoveTowards(interactableUI.alpha, active ? 1 : 0, 10*Time.deltaTime);
+        if (TryGetInteractable(out IInteractable interactable))
+        {
+            interactableUI.alpha = Mathf.MoveTowards(interactableUI.alpha, 1, 10 * Time.deltaTime);
+
+            Vector3 screenPos = controller.input.camera.WorldToScreenPoint((interactable as MonoBehaviour).transform.position);
+            interactableUI.transform.position = screenPos;
         }
-        else {
+        else
+        {
             interactableUI.alpha = Mathf.MoveTowards(interactableUI.alpha, 0, 10 * Time.deltaTime);
         }
     }
     public IInteractable LastInteractable { get; set; }
-    public void OnInteract(InputValue value)
+    private Collider[] colliders = new Collider[4];
+    private int length;
+    public bool TryGetInteractable(out IInteractable interactable)
     {
-        if (value.isPressed)
-        {
-            if (Physics.Raycast(controller.input.camera.transform.position, controller.input.camera.transform.forward, out RaycastHit hit, 5f))
-            {
-                LastInteractable = hit.transform.GetComponent<IInteractable>();
-                if (LastInteractable != null) LastInteractable.OnPress(this);
+        for (int i = 0; i < length; i++) {
+            if (colliders[i].TryGetComponent(out interactable)) {
+                return true;
             }
         }
-        else if (!value.isPressed) {
-            if (LastInteractable != null) LastInteractable.OnRelease(this);
+        interactable = null;
+        return false;
+    }
+    public void OnInteract()
+    {
+        if (TryGetInteractable(out IInteractable interactable))
+        {
+            interactable?.OnPress(this);
         }
     }
-
 }

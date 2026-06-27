@@ -229,6 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7428164338157591788}
+  - component: {fileID: 1283717653973576817}
   m_Layer: 3
   m_Name: Orientation
   m_TagString: Untagged
@@ -256,6 +257,22 @@ Transform:
   - {fileID: 89243439306775525}
   m_Father: {fileID: 7428164339133724034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1283717653973576817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428164338157591789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonTransformView
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &7428164338464529757
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,10 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7428164339133724034}
   - component: {fileID: 3597589417812324677}
-  - component: {fileID: 8755417083432842756}
   - component: {fileID: 4728704330262119710}
-  - component: {fileID: 2028835850597003418}
-  - component: {fileID: 354325318992470235}
   - component: {fileID: 3984816690375761382}
   m_Layer: 3
   m_Name: NetworkPlayer
@@ -404,36 +418,11 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 4728704330262119710}
-  - {fileID: 354325318992470235}
+  - {fileID: 0}
   - {fileID: 3220192579960310587}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8755417083432842756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7428164339133724038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c7d63b566be314880a1998e38ae2d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsCamera: {fileID: 0}
-  tpsCamera: {fileID: 0}
-  objectHolder: {fileID: 0}
-  head: {fileID: 0}
-  models:
-  - {fileID: 7428164338464529757}
-  - {fileID: 7428164340116478988}
-  - {fileID: 5680954506604501584}
-  - {fileID: 7428164339133724038}
-  - {fileID: 8831614413548318261}
-  hideModels: []
-  overlays: []
-  view: {fileID: 3597589417812324677}
 --- !u!114 &4728704330262119710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,50 +442,6 @@ MonoBehaviour:
   onFlatline:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2028835850597003418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7428164339133724038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d297eaf094abe4c4bace9f23425f6ac7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  view: {fileID: 3597589417812324677}
-  usernameTMP: {fileID: 2052856161401442202}
-  playerMeshRenderer: {fileID: 2016523281991034895}
-  specialNames:
-  - CHEESY
-  - RAGDOLL
-  - NPC
-  - PILL
-  cameraPos: {fileID: 0}
-  specialMaterials:
-  - {fileID: 2100000, guid: 66e14199b22aafa4b8f54b071b8613d8, type: 2}
-  - {fileID: 2100000, guid: 51aa340fad287784dbe9e51efcbeb1a2, type: 2}
-  - {fileID: 2100000, guid: 51aa340fad287784dbe9e51efcbeb1a2, type: 2}
-  playerModels:
-  - {fileID: 7144919689598937588}
-  - {fileID: 5743549206865630652}
---- !u!114 &354325318992470235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7428164339133724038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonTransformView
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!114 &3984816690375761382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1431,11 +1376,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3220192579960310587}
   m_SourcePrefab: {fileID: 100100000, guid: 0307c03ab4957e44281ccf61fa16fee2, type: 3}
---- !u!137 &2016523281991034895 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -2843909369972686622, guid: 0307c03ab4957e44281ccf61fa16fee2, type: 3}
-  m_PrefabInstance: {fileID: 4860587152846547181}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2845331163187375398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7208261743932278219, guid: 0307c03ab4957e44281ccf61fa16fee2, type: 3}
